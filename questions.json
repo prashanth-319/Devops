@@ -1,0 +1,277 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "options": ["Paris", "London", "Berlin", "Madrid"],
+    "answer": 0
+  },
+  {
+    "question": "What is 2 + 2?",
+    "options": ["3", "4", "5", "6"],
+    "answer": 1
+  },
+  {
+    "question": "Which language is primarily used for web development?",
+    "options": ["Python", "JavaScript", "C++", "Java"],
+    "answer": 1
+  },
+  {
+    "question": "What color do you get when you mix red and white?",
+    "options": ["Pink", "Orange", "Purple", "Brown"],
+    "answer": 0
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Earth", "Mars", "Jupiter", "Venus"],
+    "answer": 1
+  },
+  {
+    "question": "Who wrote 'Romeo and Juliet'?",
+    "options": ["Shakespeare", "Hemingway", "Tolkien", "Dickens"],
+    "answer": 0
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "options": ["Atlantic", "Pacific", "Indian", "Arctic"],
+    "answer": 1
+  },
+  {
+    "question": "What is 10 x 5?",
+    "options": ["50", "100", "15", "25"],
+    "answer": 0
+  },
+  {
+    "question": "Which element has the chemical symbol 'O'?",
+    "options": ["Oxygen", "Gold", "Silver", "Iron"],
+    "answer": 0
+  },
+  {
+    "question": "What year did the Titanic sink?",
+    "options": ["1910", "1912", "1914", "1920"],
+    "answer": 1
+  },
+  {
+    "question": "Which continent is the Sahara Desert located in?",
+    "options": ["Asia", "Africa", "Australia", "South America"],
+    "answer": 1
+  },
+  {
+    "question": "What is 15 - 7?",
+    "options": ["5", "6", "7", "8"],
+    "answer": 3
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "options": ["Michelangelo", "Van Gogh", "Da Vinci", "Rembrandt"],
+    "answer": 2
+  },
+  {
+    "question": "Which planet is closest to the Sun?",
+    "options": ["Mercury", "Venus", "Earth", "Mars"],
+    "answer": 0
+  },
+  {
+    "question": "What gas do plants produce during photosynthesis?",
+    "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+    "answer": 0
+  },
+  {
+    "question": "What is 9 x 9?",
+    "options": ["81", "72", "99", "90"],
+    "answer": 0
+  },
+  {
+    "question": "Who discovered gravity?",
+    "options": ["Einstein", "Newton", "Galileo", "Tesla"],
+    "answer": 1
+  },
+  {
+    "question": "Which country is known as the Land of the Rising Sun?",
+    "options": ["China", "Japan", "Thailand", "India"],
+    "answer": 1
+  },
+  {
+    "question": "Which is the smallest prime number?",
+    "options": ["0", "1", "2", "3"],
+    "answer": 2
+  },
+  {
+    "question": "Who wrote 'Harry Potter' series?",
+    "options": ["Tolkien", "J.K. Rowling", "C.S. Lewis", "Suzanne Collins"],
+    "answer": 1
+  },
+  {
+    "question": "What is the boiling point of water in Celsius?",
+    "options": ["90°C", "100°C", "80°C", "120°C"],
+    "answer": 1
+  },
+  {
+    "question": "What is 12 ÷ 4?",
+    "options": ["2", "3", "4", "6"],
+    "answer": 1
+  },
+  {
+    "question": "Which country hosted the 2016 Summer Olympics?",
+    "options": ["China", "Brazil", "UK", "Russia"],
+    "answer": 1
+  },
+  {
+    "question": "Which organ pumps blood through the human body?",
+    "options": ["Liver", "Lungs", "Heart", "Kidney"],
+    "answer": 2
+  },
+  {
+    "question": "Which gas is essential for human respiration?",
+    "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+    "answer": 0
+  },
+  {
+    "question": "What is 7 x 8?",
+    "options": ["54", "56", "58", "64"],
+    "answer": 1
+  },
+  {
+    "question": "Who painted the ceiling of the Sistine Chapel?",
+    "options": ["Michelangelo", "Da Vinci", "Raphael", "Rembrandt"],
+    "answer": 0
+  },
+  {
+    "question": "Which continent has the most countries?",
+    "options": ["Asia", "Africa", "Europe", "South America"],
+    "answer": 1
+  },
+  {
+    "question": "What is the largest planet in our solar system?",
+    "options": ["Earth", "Jupiter", "Saturn", "Mars"],
+    "answer": 1
+  },
+  {
+    "question": "What is 14 + 6?",
+    "options": ["18", "19", "20", "21"],
+    "answer": 2
+  },
+  {
+    "question": "Which is the fastest land animal?",
+    "options": ["Cheetah", "Lion", "Tiger", "Leopard"],
+    "answer": 0
+  },
+  {
+    "question": "Who invented the telephone?",
+    "options": ["Tesla", "Edison", "Bell", "Newton"],
+    "answer": 2
+  },
+  {
+    "question": "Which country is famous for the Eiffel Tower?",
+    "options": ["France", "Italy", "Spain", "Germany"],
+    "answer": 0
+  },
+  {
+    "question": "Which planet is known for its rings?",
+    "options": ["Saturn", "Mars", "Jupiter", "Neptune"],
+    "answer": 0
+  },
+  {
+    "question": "What is 18 ÷ 3?",
+    "options": ["5", "6", "7", "8"],
+    "answer": 1
+  },
+  {
+    "question": "Who is known as the Father of Computers?",
+    "options": ["Charles Babbage", "Alan Turing", "Bill Gates", "Steve Jobs"],
+    "answer": 0
+  },
+  {
+    "question": "Which ocean is the largest?",
+    "options": ["Atlantic", "Indian", "Pacific", "Arctic"],
+    "answer": 2
+  },
+  {
+    "question": "What is the square root of 64?",
+    "options": ["6", "7", "8", "9"],
+    "answer": 2
+  },
+  {
+    "question": "Who wrote 'The Odyssey'?",
+    "options": ["Homer", "Virgil", "Shakespeare", "Dante"],
+    "answer": 0
+  },
+  {
+    "question": "Which country has the Great Barrier Reef?",
+    "options": ["Australia", "USA", "India", "Brazil"],
+    "answer": 0
+  },
+  {
+    "question": "What is 11 x 11?",
+    "options": ["111", "121", "131", "141"],
+    "answer": 1
+  },
+  {
+    "question": "Which metal is liquid at room temperature?",
+    "options": ["Mercury", "Gold", "Silver", "Copper"],
+    "answer": 0
+  },
+  {
+    "question": "What is the chemical formula for water?",
+    "options": ["H2O", "CO2", "NaCl", "O2"],
+    "answer": 0
+  },
+  {
+    "question": "Who painted 'Starry Night'?",
+    "options": ["Van Gogh", "Da Vinci", "Michelangelo", "Picasso"],
+    "answer": 0
+  },
+  {
+    "question": "Which planet is called the Morning Star?",
+    "options": ["Venus", "Mars", "Mercury", "Jupiter"],
+    "answer": 0
+  },
+  {
+    "question": "What is 20 - 9?",
+    "options": ["9", "10", "11", "12"],
+    "answer": 2
+  },
+  {
+    "question": "Who is known for theory of relativity?",
+    "options": ["Newton", "Einstein", "Tesla", "Bohr"],
+    "answer": 1
+  },
+  {
+    "question": "Which country is famous for tulips?",
+    "options": ["Netherlands", "Germany", "France", "Italy"],
+    "answer": 0
+  },
+  {
+    "question": "What is 5 x 12?",
+    "options": ["50", "55", "60", "65"],
+    "answer": 2
+  },
+  {
+    "question": "Which organ is responsible for producing insulin?",
+    "options": ["Liver", "Pancreas", "Kidney", "Heart"],
+    "answer": 1
+  },
+  {
+    "question": "Who wrote 'Pride and Prejudice'?",
+    "options": ["Jane Austen", "Charlotte Bronte", "Mark Twain", "Emily Dickinson"],
+    "answer": 0
+  },
+  {
+    "question": "Which continent is also a country?",
+    "options": ["Australia", "Antarctica", "Asia", "Europe"],
+    "answer": 0
+  },
+  {
+    "question": "Which is the largest mammal?",
+    "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+    "answer": 1
+  },
+  {
+    "question": "What is 30 ÷ 5?",
+    "options": ["5", "6", "7", "8"],
+    "answer": 1
+  },
+  {
+    "question": "Who discovered penicillin?",
+    "options": ["Fleming", "Curie", "Newton", "Darwin"],
+    "answer": 0
+  }
+]
