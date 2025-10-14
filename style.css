@@ -43,17 +43,24 @@ h1 {
   background-color: #a7d2ff;
 }
 
-#next-btn {
+button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border: none;
-  background-color: #007bff;
-  color: white;
   border-radius: 5px;
   margin-top: 15px;
-  display: block;
+}
+
+#next-btn {
+  background-color: #007bff;
+  color: white;
   float: right;
+}
+
+#restart-btn {
+  background-color: #28a745;
+  color: white;
 }
 
 #result {
@@ -61,4 +68,11 @@ h1 {
   font-size: 20px;
   text-align: center;
   clear: both;
+}
+
+#start-btn {
+  background-color: #007bff;
+  color: white;
+  display: block;
+  margin: 0 auto;
 }
