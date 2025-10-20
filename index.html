@@ -1,28 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dynamic Quiz App</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Quiz App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    #quiz-container, #result, #restart-btn { display: none; }
+    ul { list-style: none; padding: 0; }
+    li {
+      background: #fff; color: #333; padding: 10px; margin: 8px 0;
+      border-radius: 6px; cursor: pointer; transition: 0.3s;
+    }
+    li:hover { background: #ddd; }
+    .selected { background: #ffda79 !important; }
+    button {
+      padding: 10px 20px; font-size: 16px; margin-top: 20px;
+      cursor: pointer; border: none; border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Quiz App</h1>
 
-    <div id="start-container">
-      <button id="start-btn">Start Quiz</button>
-    </div>
-
-    <div id="quiz-container" style="display: none;">
-      <div id="question"></div>
-      <ul id="options"></ul>
-      <button id="next-btn" onclick="nextQuestion()" disabled>Next</button>
-      <button id="restart-btn" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
-      <div id="result"></div>
-    </div>
+  <div id="start-container">
+    <h1>Welcome to the Quiz!</h1>
+    <button id="start-btn">Start Quiz</button>
   </div>
 
-  <script src="script.js"></script>
+  <div id="quiz-container">
+    <h2 id="question"></h2>
+    <ul id="options"></ul>
+    <button id="next-btn" onclick="nextQuestion()">Next</button>
+  </div>
+
+  <h2 id="result"></h2>
+  <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
+
+  <script>
+    // Static quiz data
+    const quizData = [
+      {
+        "question": "What is the capital of France?",
+        "options": ["Paris", "London", "Berlin", "Madrid"],
+        "answer": 0
+      },
+      {
+        "question": "What is 2 + 2?",
+        "options": ["3", "4", "5", "6"],
+        "answer": 1
+      },
+      {
+        "question": "Which language is primarily used for web development?",
+        "options": ["Python", "JavaScript", "C++", "Java"],
+        "answer": 1
+      },
+      {
+        "question": "What color do you get when you mix red and white?",
+        "options": ["Pink", "Orange", "Purple", "Brown"],
+        "answer": 0
+      },
+      {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Earth", "Mars", "Jupiter", "Venus"],
+        "answer": 1
+      },
+      {
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "options": ["Shakespeare", "Hemingway", "Tolkien", "Dickens"],
+        "answer": 0
+      },
+      {
+        "question": "What is the largest ocean on Earth?",
+        "options": ["Atlantic", "Pacific", "Indian", "Arctic"],
+        "answer": 1
+      },
+      {
+        "question": "What is 10 x 5?",
+        "options": ["50", "100", "15", "25"],
+        "answer": 0
+      },
+      {
+        "question": "Which element has the chemical symbol 'O'?",
+        "options": ["Oxygen", "Gold", "Silver", "Iron"],
+        "answer": 0
+      },
+      {
+        "question": "What year did the Titanic sink?",
+        "options": ["1910", "1912", "1914", "1920"],
+        "answer": 1
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedOption = null;
+
+    // HTML elements
+    const startBtn = document.getElementById('start-btn');
+    const startContainer = document.getElementById('start-container');
+    const quizContainer = document.getElementById('quiz-container');
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options');
+    const nextBtn = document.getElementById('next-btn');
+    const resultEl = document.getElementById('result');
+    const restartBtn = document.getElementById('restart-btn');
+
+    // Start Quiz
+    startBtn.addEventListener('click', () => {
+      startContainer.style.display = 'none';
+      quizContainer.style.display = 'block';
+      loadQuestion();
+    });
+
+    // Shuffle Array
+    function shuffleArray(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    // Load a question
+    function loadQuestion() {
+      if (currentQuestionIndex >= quizData.length) {
+        showResult();
+        return;
+      }
+
+      selectedOption = null;
+      const currentQuestion = quizData[currentQuestionIndex];
+      questionEl.innerText = `Q${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+
+      optionsEl.innerHTML = '';
+      const shuffledOptions = shuffleArray([...currentQuestion.options]);
+      shuffledOptions.forEach(option => {
+        const li = document.createElement('li');
+        li.innerText = option;
+        li.onclick = () => selectOption(li, currentQuestion.options.indexOf(option));
+        optionsEl.appendChild(li);
+      });
+
+      nextBtn.disabled = true;
+    }
+
+    // Select Option
+    function selectOption(li, index) {
+      if (selectedOption !== null) optionsEl.children[selectedOption].classList.remove('selected');
+      li.classList.add('selected');
+      selectedOption = index;
+      nextBtn.disabled = false;
+    }
+
+    // Next Question
+    function nextQuestion() {
+      if (selectedOption === null) return;
+      if (selectedOption === quizData[currentQuestionIndex].answer) score++;
+      currentQuestionIndex++;
+      loadQuestion();
+    }
+
+    // Show Result
+    function showResult() {
+      questionEl.innerText = 'Quiz Completed!';
+      optionsEl.innerHTML = '';
+      nextBtn.style.display = 'none';
+      restartBtn.style.display = 'block';
+      resultEl.innerText = `Your score: ${score} / ${quizData.length}`;
+    }
+
+    // Restart Quiz
+    function restartQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      restartBtn.style.display = 'none';
+      nextBtn.style.display = 'block';
+      loadQuestion();
+      quizContainer.style.display = 'block';
+      resultEl.innerText = '';
+    }
+  </script>
 </body>
 </html>
