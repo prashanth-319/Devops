@@ -3,152 +3,333 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Static Quiz App</title>
+  <title>Flutter SDK Exam Answers</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #4d92d1, #000000);
-      color: #fff;
-      text-align: center;
-      padding: 50px;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
     }
-    #quiz-container, #result, #restart-btn { display: none; }
-    ul { list-style: none; padding: 0; }
-    li {
-      background: #fff; color: #333; padding: 10px; margin: 8px 0;
-      border-radius: 6px; cursor: pointer; transition: 0.3s;
+
+    h1, h2, h3 {
+      color: #004aad;
     }
-    li:hover { background: #ddd; }
-    .selected { background: #ffda79 !important; }
-    button {
-      padding: 10px 20px; font-size: 16px; margin-top: 20px;
-      cursor: pointer; border: none; border-radius: 6px;
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+      border: 1px solid #ddd;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+      color: #d63384;
+    }
+
+    section {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #eee;
+      margin: 30px 0;
+    }
+
+    .question {
+      font-weight: bold;
+      color: #1a1a1a;
     }
   </style>
 </head>
 <body>
 
-  <div id="start-container">
-    <h1>Welcome to the Quiz Application!</h1>
-    <button id="start-btn">Start Quiz</button>
-  </div>
+  <h1>Flutter SDK Exam Answers</h1>
 
-  <div id="quiz-container">
-    <h2 id="question"></h2>
-    <ul id="options"></ul>
-    <button id="next-btn" onclick="nextQuestion()">Next</button>
-  </div>
+  <section>
+    <h2>1(a) Explain Installing Flutter SDK in our systems</h2>
+    <p class="question">Steps:</p>
+    <ul>
+      <li><strong>Download Flutter SDK:</strong><br>
+      Go to <a href="https://flutter.dev/docs/get-started/install" target="_blank">https://flutter.dev/docs/get-started/install</a><br>
+      Choose your operating system (Windows, macOS, or Linux) and download the SDK.</li>
 
-  <h2 id="result"></h2>
-  <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
+      <li><strong>Extract the ZIP file:</strong><br>
+      Extract it to a suitable location, e.g. <code>C:\src\flutter</code> (avoid paths with spaces).</li>
 
-  <script>
-    const quizData = [
-      { "question": "What is the capital of France?", "options": ["Paris", "London", "Berlin", "Madrid"], "answer": 0 },
-      { "question": "What is 2 + 2?", "options": ["3", "4", "5", "6"], "answer": 1 },
-      { "question": "Which language is primarily used for web development?", "options": ["Python", "JavaScript", "C++", "Java"], "answer": 1 },
-      { "question": "What color do you get when you mix red and white?", "options": ["Pink", "Orange", "Purple", "Brown"], "answer": 0 },
-      { "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Mars", "Jupiter", "Venus"], "answer": 1 },
-      { "question": "Who wrote 'Romeo and Juliet'?", "options": ["Shakespeare", "Hemingway", "Tolkien", "Dickens"], "answer": 0 },
-      { "question": "What is the largest ocean on Earth?", "options": ["Atlantic", "Pacific", "Indian", "Arctic"], "answer": 1 },
-      { "question": "What is 10 x 5?", "options": ["50", "100", "15", "25"], "answer": 0 },
-      { "question": "Which element has the chemical symbol 'O'?", "options": ["Oxygen", "Gold", "Silver", "Iron"], "answer": 0 },
-      { "question": "What year did the Titanic sink?", "options": ["1910", "1912", "1914", "1920"], "answer": 1 }
-    ];
+      <li><strong>Set Environment Variable:</strong><br>
+      Add the Flutter bin path to system environment variables:<br>
+      <code>C:\src\flutter\bin</code></li>
 
-    let currentQuestionIndex = 0;
-    let score = 0;
-    let selectedOption = null;
-    let quizSession = [];
+      <li><strong>Run Flutter Doctor:</strong><br>
+      Open Command Prompt and type:<br>
+      <code>flutter doctor</code><br>
+      This checks for dependencies (Dart SDK, Android Studio, VS Code, etc.).</li>
 
-    const startBtn = document.getElementById('start-btn');
-    const startContainer = document.getElementById('start-container');
-    const quizContainer = document.getElementById('quiz-container');
-    const questionEl = document.getElementById('question');
-    const optionsEl = document.getElementById('options');
-    const nextBtn = document.getElementById('next-btn');
-    const resultEl = document.getElementById('result');
-    const restartBtn = document.getElementById('restart-btn');
+      <li><strong>Install Android Studio (Optional):</strong><br>
+      For Android app development, install Android Studio and SDK tools.</li>
 
-    // Start Quiz
-    startBtn.addEventListener('click', () => {
-      startContainer.style.display = 'none';
-      quizContainer.style.display = 'block';
+      <li><strong>Run Flutter Doctor Again:</strong><br>
+      Ensure all checks are marked with ✔️</li>
+    </ul>
+  </section>
 
-      quizSession = shuffleArray(quizData).slice(0, 4);
-      loadQuestion();
-    });
+  <section>
+    <h2>1(b) Simple Dart Program</h2>
+    <pre><code>void main() {
+  int a = 10;
+  double b = 5.5;
+  String name = "Flutter";
+  bool isLearning = true;
 
-    function shuffleArray(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
+  print("Name: $name");
+  print("Sum: ${a + b}");
+  print("Learning Flutter: $isLearning");
+}</code></pre>
+  </section>
 
-    function loadQuestion() {
-      if (currentQuestionIndex >= quizSession.length) {
-        showResult();
-        return;
-      }
+  <section>
+    <h2>2(a) Program to Create Custom Widget</h2>
+    <pre><code>import 'package:flutter/material.dart';
 
-      selectedOption = null;
-      nextBtn.disabled = true;
+void main() => runApp(MyApp());
 
-      const currentQuestion = quizSession[currentQuestionIndex];
-      questionEl.innerText = `Q${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Scaffold(body: Center(child: CustomButton())));
+  }
+}
 
-      optionsEl.innerHTML = '';
+class CustomButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.teal,
+        padding: EdgeInsets.all(16),
+      ),
+      onPressed: () {},
+      child: Text('Click Me', style: TextStyle(fontSize: 20)),
+    );
+  }
+}</code></pre>
+  </section>
 
-      // Shuffle options for display but store mapping to original index
-      const optionsMap = currentQuestion.options.map((option, index) => ({option, index}));
-      const shuffledOptions = shuffleArray(optionsMap);
+  <section>
+    <h2>2(b) Hello World App</h2>
+    <pre><code>import 'package:flutter/material.dart';
 
-      shuffledOptions.forEach(item => {
-        const li = document.createElement('li');
-        li.innerText = item.option;
-        li.onclick = () => selectOption(li, item.index);
-        optionsEl.appendChild(li);
-      });
-    }
+void main() => runApp(MyApp());
 
-    function selectOption(li, index) {
-      // Prevent multiple selections
-      if (selectedOption !== null) return;
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Scaffold(body: Center(child: Text('Hello World'))));
+  }
+}</code></pre>
+  </section>
 
-      li.classList.add('selected');
-      selectedOption = index;
-      nextBtn.disabled = false;
-    }
+  <section>
+    <h2>3(a) Program Applying Styling using Themes</h2>
+    <pre><code>import 'package:flutter/material.dart';
 
-    function nextQuestion() {
-      if (selectedOption === null) return;
+void main() => runApp(MyApp());
 
-      const currentQuestion = quizSession[currentQuestionIndex];
-      if (selectedOption === currentQuestion.answer) score++;
+class MyApp extends StatelessWidget {
+  final ThemeData theme = ThemeData(
+    primarySwatch: Colors.indigo,
+    textTheme: TextTheme(bodyMedium: TextStyle(fontSize: 22, color: Colors.black)),
+  );
 
-      currentQuestionIndex++;
-      loadQuestion();
-    }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: theme,
+      home: Scaffold(
+        appBar: AppBar(title: Text('Custom Theme Example')),
+        body: Center(child: Text('Hello Flutter!', style: theme.textTheme.bodyMedium)),
+      ),
+    );
+  }
+}</code></pre>
+  </section>
 
-    function showResult() {
-      questionEl.innerText = 'Quiz Completed!';
-      optionsEl.innerHTML = '';
-      nextBtn.style.display = 'none';
-      restartBtn.style.display = 'block';
-      resultEl.innerText = `Your score: ${score} / ${quizSession.length}`;
-    }
+  <section>
+    <h2>4(a) Add Animations using Flutter Animation Framework</h2>
+    <pre><code>import 'package:flutter/material.dart';
 
-    function restartQuiz() {
-      currentQuestionIndex = 0;
-      score = 0;
-      selectedOption = null;
-      restartBtn.style.display = 'none';
-      nextBtn.style.display = 'block';
-      resultEl.innerText = '';
+void main() => runApp(MyApp());
 
-      quizSession = shuffleArray(quizData).slice(0, 4);
-      loadQuestion();
-      quizContainer.style.display = 'block';
-      nextBtn.style.display = 'inline-block';
-    }
-  </script>
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _animation = Tween<double>(begin: 0, end: 300).animate(_controller);
+    _controller.repeat(reverse: true);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: AnimatedBuilder(
+            animation: _animation,
+            builder: (context, child) {
+              return Container(width: _animation.value, height: _animation.value, color: Colors.blue);
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+  </section>
+
+  <section>
+    <h2>5(a) Fade Animation in Flutter</h2>
+    <pre><code>import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _fadeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+    _controller.repeat(reverse: true);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: FadeTransition(
+            opacity: _fadeAnimation,
+            child: Text('Fading Text', style: TextStyle(fontSize: 30)),
+          ),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+  </section>
+
+  <section>
+    <h2>6(a) Layouts using Row, Column, and Stack Widgets</h2>
+    <pre><code>import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.home, size: 40),
+                Icon(Icons.star, size: 40),
+              ],
+            ),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(width: 100, height: 100, color: Colors.blue),
+                Text('Stack', style: TextStyle(color: Colors.white, fontSize: 20)),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}</code></pre>
+  </section>
+
+  <section>
+    <h2>7(a) Slide Animation in Flutter</h2>
+    <pre><code>import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation&lt;Offset&gt; _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _slideAnimation = Tween&lt;Offset&gt;(begin: Offset(-1, 0), end: Offset(0, 0)).animate(_controller);
+    _controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: SlideTransition(
+            position: _slideAnimation,
+            child: Container(
+              width: 150,
+              height: 150,
+              color: Colors.orange,
+              child: Center(child: Text('Slide Animation')),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+  </section>
+
+  <hr>
+  <p style="text-align:center;">© 2025 Flutter Exam Answers | Prepared by Prashanth</p>
+
 </body>
 </html>
